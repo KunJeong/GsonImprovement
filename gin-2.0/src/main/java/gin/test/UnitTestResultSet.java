@@ -17,7 +17,6 @@ import gin.Patch;
  * the rest of the data is held in a list of UnitTestResult.
  */
 public class UnitTestResultSet {
-
     private List<UnitTestResult> results;
 
     private Patch patch;
@@ -62,6 +61,14 @@ public class UnitTestResultSet {
             totalTime += testResult.getExecutionTime();
         }
         return totalTime;
+    }
+
+    public long totalMemoryUsage()  {
+        long totalMemory = 0;
+        for (UnitTestResult testResult : results) {
+            totalMemory += testResult.getMemoryUsage();
+        }
+        return totalMemory;
     }
 
     ////  Could be used to set timeout for individual tests. Unused at the moment.

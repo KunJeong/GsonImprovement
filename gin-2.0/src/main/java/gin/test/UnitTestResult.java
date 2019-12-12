@@ -23,6 +23,7 @@ public class UnitTestResult {
 
     private long executionTime = 0;
     private long cpuTime = 0;
+    private long memoryUsage = 0;
 
     
     public UnitTestResult(UnitTest test, int rep) {
@@ -72,6 +73,10 @@ public class UnitTestResult {
         return cpuTime;
     }
 
+    public long getMemoryUsage() {
+        return memoryUsage;
+    }
+
     /*============== setters  ==============*/
 
     public void setPassed(boolean passed) {
@@ -104,6 +109,10 @@ public class UnitTestResult {
 
     public void setCPUTime(long testCPUTime)  {
         this.cpuTime = testCPUTime;
+    }
+
+    public void setMemoryUsage(long testMemoryUsage)  {
+        this.memoryUsage = testMemoryUsage;
     }
 
     /*============== process failure  ==============*/
@@ -216,6 +225,8 @@ public class UnitTestResult {
                 result.setExecutionTime(Long.parseLong(value));
                 value = StringUtils.substringBetween(testResult, "CPU Time: ",";");
                 result.setCPUTime(Long.parseLong(value));
+                value = StringUtils.substringBetween(testResult, "Memory Usage: ",";");
+                result.setMemoryUsage(Long.parseLong(value));
 
             } catch (NumberFormatException e) {
                 throw new ParseException(e.getMessage(), 0);
@@ -229,7 +240,7 @@ public class UnitTestResult {
         return String.format(
                 "UnitTestResult %s. " + "Rep number: %d; " +
                         "Passed: %b; Timed out: %b; Exception Type: %s; Exception Message: %s; " +
-                        "Assertion Expected: %s; Assertion Actual: %s; Execution Time: %d; CPU Time: %d;",
+                        "Assertion Expected: %s; Assertion Actual: %s; Execution Time: %d; CPU Time: %d; Memory Usage: %d;",
                 test.toString(),
                 repNumber,
                 passed,
@@ -239,7 +250,8 @@ public class UnitTestResult {
                 expectedValue,
                 actualValue,
                 executionTime,
-        cpuTime);
+                cpuTime,
+        memoryUsage);
     }
 
 }

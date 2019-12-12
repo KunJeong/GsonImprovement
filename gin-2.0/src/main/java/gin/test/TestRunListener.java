@@ -45,6 +45,9 @@ public class TestRunListener extends RunListener {
         long endCPUTime = threadMXBean.getCurrentThreadCpuTime();
         unitTestResult.setExecutionTime(endTime - startTime);
         unitTestResult.setCPUTime(endCPUTime - startCPUTime);
+        // System.gc();
+        Runtime rt = Runtime.getRuntime();
+        unitTestResult.setMemoryUsage((rt.totalMemory() - rt.freeMemory()) / 1024 / 1024);
     }
 
     public void testIgnored(Description description) throws Exception {

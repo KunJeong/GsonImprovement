@@ -14,7 +14,7 @@ public class TestResultTest {
     private static final String patchedProgram = "public class SimpleExample() { }";
     private static final String expectedToString = "UnitTestResult ExampleClass.exampleMethod []. " + "Rep number: 0; " +
             "Passed: true; Timed out: false; Exception Type: N/A; Exception Message: N/A; Assertion Expected: N/A" +
-            "; Assertion Actual: N/A; Execution Time: 0; CPU Time: 0;";
+            "; Assertion Actual: N/A; Execution Time: 0; CPU Time: 0; Memory Usage: 0;";
 
     @Before
     public void setUp() throws Exception {
