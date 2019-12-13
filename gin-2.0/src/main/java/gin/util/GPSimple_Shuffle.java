@@ -126,8 +126,25 @@ public abstract class GPSimple_Shuffle extends GP {
 
     // Mutation operator, returns a clone of the old patch
     protected Patch mutate(Patch oldPatch) {
+        
         Patch patch = oldPatch.clone();
-        patch.addRandomEdit(super.mutationRng, super.editType);
+        if(Math.random() < 0.7){
+            patch.addRandomEdit(super.mutationRng, super.editType);
+            return patch;
+        }
+        //remove node where edit was added with 0.3 probability
+        List<Edit> list = oldPatch.getEdits();
+        for (int i = 0; i < oldPatch.size(); i++) {
+            patch.remove(0);
+        }
+        int a = (int)(Math.random() * oldPatch.size());
+
+        for (int i = 0; i < oldPatch.size(); i++) {
+            if(i==a){
+                patch.addRandomEdit(super.mutationRng, super.editType);
+            }
+            patch.add(list.get(i));
+        }
         return patch;
     }
 
