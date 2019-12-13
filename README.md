@@ -5,9 +5,7 @@
 git clone https://github.com/KunJeong/GsonImprovement.git
 cd GsonImprovement/gin-2.0
 ./gradlew build
-
-git clone https://github.com/justynapt/ssbseChallenge2019.git
-cd ssbseChallenge2019
+cd ..
 git clone https://github.com/google/gson.git gson
 cd gson
 git checkout gson-parent-2.8.5
@@ -20,7 +18,7 @@ mvn test
 Put gin.jar and create\_profile\_results.csv and create\_profile\_results\_all.csv (input files) in the same repository as gson:
 ```
 cp ../gin-2.0/build/gin.jar .
-cp <path_to_gin.jar>/gin.jar .
+cp ../input/*csv .
 ```
 
 All parameters can be viewed with:
