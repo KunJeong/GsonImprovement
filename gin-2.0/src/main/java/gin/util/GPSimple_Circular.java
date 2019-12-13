@@ -20,14 +20,14 @@ import gin.test.UnitTestResultSet;
  *
  */
 
-public abstract class GPSimple extends GP {
+public abstract class GPSimple_Circular extends GP {
     
-    public GPSimple(String[] args) {
+    public GPSimple_Circular(String[] args) {
         super(args);
     }   
 
     // Constructor used for testing
-    public GPSimple(File projectDir, File methodFile) {
+    public GPSimple_Circular(File projectDir, File methodFile) {
         super(projectDir, methodFile);
     }   
 

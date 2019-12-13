@@ -14,19 +14,19 @@ import gin.test.UnitTestResultSet;
  *
  */
 
-public class GPRuntime extends GPSimple_K {
+public class GPRuntime_S extends GPSimple_Shuffle {
     
     public static void main(String[] args) {
-        GPRuntime sampler = new GPRuntime(args);
+        GPRuntime_S sampler = new GPRuntime_S(args);
         sampler.sampleMethods();
     }   
 
-    public GPRuntime(String[] args) {
+    public GPRuntime_S(String[] args) {
         super(args);
     }   
 
     // Constructor used for testing
-    public GPRuntime(File projectDir, File methodFile) {
+    public GPRuntime_S(File projectDir, File methodFile) {
         super(projectDir, methodFile);
     }   
 

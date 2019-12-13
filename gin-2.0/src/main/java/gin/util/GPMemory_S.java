@@ -10,23 +10,23 @@ import gin.test.UnitTestResultSet;
 
 
 /**
- * Method-based GenProg-like GPRuntime search.
+ * Method-based GenProg-like GPFix search.
  *
  */
 
-public class GPRuntime extends GPSimple_K {
+public class GPMemory_S extends GPSimple_Shuffle {
     
     public static void main(String[] args) {
-        GPRuntime sampler = new GPRuntime(args);
+        GPMemory_S sampler = new GPMemory_S(args);
         sampler.sampleMethods();
     }   
 
-    public GPRuntime(String[] args) {
+    public GPMemory_S(String[] args) {
         super(args);
     }   
 
     // Constructor used for testing
-    public GPRuntime(File projectDir, File methodFile) {
+    public GPMemory_S(File projectDir, File methodFile) {
         super(projectDir, methodFile);
     }   
 
@@ -41,7 +41,7 @@ public class GPRuntime extends GPSimple_K {
     // Calculate fitness
     protected long fitness(UnitTestResultSet results) {
     
-        return results.totalExecutionTime() / 1000000;
+        return results.totalMemoryUsage();
     }   
 
     // Calculate fitness threshold, for selection to the next generation

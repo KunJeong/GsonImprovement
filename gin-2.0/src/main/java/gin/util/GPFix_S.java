@@ -14,19 +14,19 @@ import gin.test.UnitTestResultSet;
  *
  */
 
-public class GPFix extends GPSimple {
+public class GPFix_S extends GPSimple_Shuffle {
     
     public static void main(String[] args) {
-        GPFix sampler = new GPFix(args);
+        GPFix_S sampler = new GPFix_S(args);
         sampler.sampleMethods();
     }   
 
-    public GPFix(String[] args) {
+    public GPFix_S(String[] args) {
         super(args);
     }   
 
     // Constructor used for testing
-    public GPFix(File projectDir, File methodFile) {
+    public GPFix_S(File projectDir, File methodFile) {
         super(projectDir, methodFile);
     }   
 

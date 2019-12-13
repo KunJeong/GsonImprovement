@@ -14,19 +14,19 @@ import gin.test.UnitTestResultSet;
  *
  */
 
-public class GPMemory extends GPSimple {
+public class GPMemory_U extends GPSimple_Uniform {
     
     public static void main(String[] args) {
-        GPMemory sampler = new GPMemory(args);
+        GPMemory_U sampler = new GPMemory_U(args);
         sampler.sampleMethods();
     }   
 
-    public GPMemory(String[] args) {
+    public GPMemory_U(String[] args) {
         super(args);
     }   
 
     // Constructor used for testing
-    public GPMemory(File projectDir, File methodFile) {
+    public GPMemory_U(File projectDir, File methodFile) {
         super(projectDir, methodFile);
     }   
 

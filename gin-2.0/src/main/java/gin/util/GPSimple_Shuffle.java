@@ -21,14 +21,14 @@ import gin.test.UnitTestResultSet;
  *
  */
 
-public abstract class GPSimple extends GP {
+public abstract class GPSimple_Shuffle extends GP {
     
-    public GPSimple(String[] args) {
+    public GPSimple_Shuffle(String[] args) {
         super(args);
     }   
 
     // Constructor used for testing
-    public GPSimple(File projectDir, File methodFile) {
+    public GPSimple_Shuffle(File projectDir, File methodFile) {
         super(projectDir, methodFile);
     }   
 
@@ -165,19 +165,19 @@ public abstract class GPSimple extends GP {
     /*============== Helper methods  ==============*/
 
     // Returns a patch which contains the first half of edits in patch1 and second half of edits in patch2 
-    private Patch crossover(Patch patch1, Patch patch2, SourceFile sourceFile) {
-        List<Edit> list1 = patch1.getEdits();
-        List<Edit> list2 = patch2.getEdits();
-        Patch patch = new Patch(sourceFile);
-        for (int i = 0; i < patch1.size() / 2; i++) {
+    // private Patch crossover(Patch patch1, Patch patch2, SourceFile sourceFile) {
+    //     List<Edit> list1 = patch1.getEdits();
+    //     List<Edit> list2 = patch2.getEdits();
+    //     Patch patch = new Patch(sourceFile);
+    //     for (int i = 0; i < patch1.size() / 2; i++) {
 
-            patch.add(list1.get(i));
-        }
-        for (int i = patch2.size() / 2; i < patch2.size(); i++) {
-            patch.add(list2.get(i));
-        }
-        return patch;
-    }
+    //         patch.add(list1.get(i));
+    //     }
+    //     for (int i = patch2.size() / 2; i < patch2.size(); i++) {
+    //         patch.add(list2.get(i));
+    //     }
+    //     return patch;
+    // }
 
     private Patch[] shuffleCrossover(Patch patch1, Patch patch2, SourceFile sourceFile) {
         List<Edit> list1 = patch1.getEdits();
@@ -196,12 +196,12 @@ public abstract class GPSimple extends GP {
             shuffleIndex2 = random.nextInt(patch1.size());
 
             // Apply the same shuffle for both patches
-            tempEdit1 = list1[shuffleIndex1];
-            tempEdit2 = list2[shuffleIndex1];
-            list1[shuffleIndex1] = list1[shuffleIndex2];
-            list2[shuffleIndex1] = list2[shuffleIndex2];
-            list1[shuffleIndex2] = tempEdit1;
-            list2[shuffleIndex2] = tempEdit2;
+            tempEdit1 = list1.get(shuffleIndex1);
+            tempEdit2 = list2.get(shuffleIndex1);
+            list1.set(shuffleIndex1, list1.get(shuffleIndex2));
+            list2.set(shuffleIndex1, list2.get(shuffleIndex2));
+            list1.set(shuffleIndex2, tempEdit1);
+            list2.set(shuffleIndex2, tempEdit2);
         }
 
         // Apply 1-point crossover and reverse the order of unshuffled elements
@@ -215,7 +215,7 @@ public abstract class GPSimple extends GP {
             resultPatch2.add(list1.get(i));
         }
 
-        return new Patch[] {result_patch1, result_patch2};
+        return new Patch[] {resultPatch1, resultPatch2};
     }
 
 }

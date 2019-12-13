@@ -10,23 +10,23 @@ import gin.test.UnitTestResultSet;
 
 
 /**
- * Method-based GenProg-like GPRuntime search.
+ * Method-based GenProg-like GPFix search.
  *
  */
 
-public class GPRuntime extends GPSimple_K {
+public class GPFix_K extends GPSimple_KPoints {
     
     public static void main(String[] args) {
-        GPRuntime sampler = new GPRuntime(args);
+        GPFix_K sampler = new GPFix_K(args);
         sampler.sampleMethods();
     }   
 
-    public GPRuntime(String[] args) {
+    public GPFix_K(String[] args) {
         super(args);
     }   
 
     // Constructor used for testing
-    public GPRuntime(File projectDir, File methodFile) {
+    public GPFix_K(File projectDir, File methodFile) {
         super(projectDir, methodFile);
     }   
 
@@ -36,26 +36,33 @@ public class GPRuntime extends GPSimple_K {
         super.search(className, tests, sourceFile);
     }   
 
+
     /*============== Implementation of abstract methods  ==============*/
 
     // Calculate fitness
     protected long fitness(UnitTestResultSet results) {
     
-        return results.totalExecutionTime() / 1000000;
+        long testsFailed = 0;
+        for (UnitTestResult res : results.getResults()) {
+            if (!res.getPassed()) {
+                testsFailed++;
+            }   
+        }   
+        return testsFailed;
     }   
 
-    // Calculate fitness threshold, for selection to the next generation
+ // Calculate fitness threshold, for selection to the next generation
     protected boolean fitnessThreshold(UnitTestResultSet results, long orig) {
     
-        return results.allTestsSuccessful();
-    }   
-
-
+        long newFit = fitness(results);
+        return newFit <= orig;
+    }
+    
     // Compare two fitness values, result of comparison printed on commandline if > 0
     protected long compareFitness(long newFitness, long best) {
-
+            
         return best - newFitness;
-    }
-
-
-}
+    }       
+        
+        
+} 

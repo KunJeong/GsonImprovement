@@ -22,14 +22,14 @@ import org.apache.commons.math3.exception.NumberIsTooLargeException;
  *
  */
 
-public abstract class GPSimple extends GP {
+public abstract class GPSimple_KPoints extends GP {
     
-    public GPSimple(String[] args) {
+    public GPSimple_KPoints(String[] args) {
         super(args);
     }   
 
     // Constructor used for testing
-    public GPSimple(File projectDir, File methodFile) {
+    public GPSimple_KPoints(File projectDir, File methodFile) {
         super(projectDir, methodFile);
     }   
 
@@ -174,19 +174,19 @@ public abstract class GPSimple extends GP {
     /*============== Helper methods  ==============*/
 
     // Returns a patch which contains the first half of edits in patch1 and second half of edits in patch2 
-    private Patch crossover(Patch patch1, Patch patch2, SourceFile sourceFile) {
-        List<Edit> list1 = patch1.getEdits();
-        List<Edit> list2 = patch2.getEdits();
-        Patch patch = new Patch(sourceFile);
-        for (int i = 0; i < patch1.size() / 2; i++) {
+    // private Patch crossover(Patch patch1, Patch patch2, SourceFile sourceFile) {
+    //     List<Edit> list1 = patch1.getEdits();
+    //     List<Edit> list2 = patch2.getEdits();
+    //     Patch patch = new Patch(sourceFile);
+    //     for (int i = 0; i < patch1.size() / 2; i++) {
 
-            patch.add(list1.get(i));
-        }
-        for (int i = patch2.size() / 2; i < patch2.size(); i++) {
-            patch.add(list2.get(i));
-        }
-        return patch;
-    }
+    //         patch.add(list1.get(i));
+    //     }
+    //     for (int i = patch2.size() / 2; i < patch2.size(); i++) {
+    //         patch.add(list2.get(i));
+    //     }
+    //     return patch;
+    // }
 
 
     private List<Patch> kPointCrossover(Patch patch1, Patch patch2, int crossoverPoints, SourceFile sourceFile)
