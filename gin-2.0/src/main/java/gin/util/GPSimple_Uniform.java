@@ -126,7 +126,7 @@ public abstract class GPSimple_Uniform extends GP {
     protected Patch mutate(Patch oldPatch) {
         
         Patch patch = oldPatch.clone();
-        if(Math.random() < 0.7){
+        if(Math.random() <= 0.9){
             patch.addRandomEdit(super.mutationRng, super.editType);
             return patch;
         }
