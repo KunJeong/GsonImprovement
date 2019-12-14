@@ -192,6 +192,10 @@ public abstract class GPSimple_Uniform extends GP {
         List<Edit> list1 = patch1.getEdits();
         List<Edit> list2 = patch2.getEdits();
         Patch patch = new Patch(sourceFile);
+        // If any input patch is empty, return the potential non-empty patch
+        if(list1.isEmpty()) return patch2;
+        if(list2.isEmpty()) return patch1;
+
         for (int i = 0; i < patch1.size(); i++) {
             double a = Math.random();
             if(a>=1/2 && i < patch2.size()) patch.add(list1.get(i));

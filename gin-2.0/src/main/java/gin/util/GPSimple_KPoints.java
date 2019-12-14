@@ -212,6 +212,7 @@ public abstract class GPSimple_KPoints extends GP {
         List<Edit> list2 = patch2.getEdits();
         Patch patch = new Patch(sourceFile);
 
+        List<Patch> patchList = new ArrayList<>();
         Patch childPatch1 = new Patch(sourceFile);
         Patch childPatch2 = new Patch(sourceFile);
         
@@ -219,6 +220,13 @@ public abstract class GPSimple_KPoints extends GP {
         int remainPoints = crossoverPoints;
         int lastIndex = 0;
         Random random = new Random();
+
+        // If any input patch is empty, return the list of input patches.
+        if(list1.isEmpty() || list2.isEmpty()) {
+            patchList.add(childPatch1);
+            patchList.add(childPatch2);
+            return patchList;
+        }
 
         if (length == 0 || length == 1){
             childPatch1 = patch2;
@@ -250,7 +258,6 @@ public abstract class GPSimple_KPoints extends GP {
             }
         }
 
-        List<Patch> patchList = new ArrayList<>();
         patchList.add(childPatch1);
         patchList.add(childPatch2);
 
