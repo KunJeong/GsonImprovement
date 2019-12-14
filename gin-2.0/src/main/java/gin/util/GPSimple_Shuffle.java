@@ -205,7 +205,7 @@ public abstract class GPSimple_Shuffle extends GP {
         Random random = new Random();
         int shuffleNumber, shuffleIndex1, shuffleIndex2, crossoverPointIndex;
         Edit tempEdit1, tempEdit2;
-        shuffleNumber = random.nextInt(patch1.size() / 2);
+        shuffleNumber = random.nextInt((patch1.size() / 2) + 1);
 
         // Shuffle parent patches
         for (int i = 0; i < shuffleNumber; i++) {
