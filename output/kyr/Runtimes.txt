@@ -1,0 +1,432 @@
+## GPRuntime_K
+
+# create_profile_results.csv
+	real 12m48.010s
+	user 25m47.360s
+	sys 0m13.644s
+
+# create_profile_results_all.csv
+	real 30m22.112s
+	user 51m2.920s
+	sys 0m48.522s
+
+## GPRuntime_C
+
+# create_profile_results.csv
+	real 13m36.333s
+	user 28m4.972s
+	sys 0m15.184s
+
+# create_profile_results_all.csv
+	real 22m39.590s
+	user 38m38.404s
+	sys 0m40.272s
+
+## GPRuntime_S
+
+# create_profile_results.csv
+	real 11m39.047s
+	user 23m59.228s
+	sys 0m12.424s
+
+# create_profile_results_all.csv
+	real 21m52.452s
+	user 37m43.384s
+	sys 0m38.268s
+
+## GPRuntime_U
+
+# create_profile_results.csv
+	real 13m48.450s
+	user 28m33.344s
+	sys 0m14.520s
+
+# create_profile_results_all.csv
+	real 22m38.660s
+	user 38m41.644s
+	sys 0m39.456s
+
+## GPMemory_K
+
+# create_profile_results.csv
+	real 12m59.430s
+	user 26m41.044s
+	sys 0m13.584s
+
+# create_profile_results_all.csv
+	real 31m4.272s
+	user 52m10.569s
+	sys 0m50.160s
+
+## GPMemory_C
+
+# create_profile_results.csv
+	real 14m40.107s
+	user 31m23.625s
+	sys 0m16.033s
+
+# create_profile_results_all.csv
+	real 24m23.792s
+	user 41m38.216s
+	sys 0m41.808s
+
+## GPMemory_S
+
+# create_profile_results.csv
+	real 10m22.335s
+	user 21m13.280s
+	sys 0m11.228s
+
+# create_profile_results_all.csv
+	real 22m43.468s
+	user 38m27.040s
+	sys 0m38.720s
+
+## GPMemory_U
+
+# create_profile_results.csv
+	real 15m17.491s
+	user 31m22.588s
+	sys 0m15.348s
+
+# create_profile_results_all.csv
+	real 30m.29.783s
+	user 51m0.544s
+	sys 0m49.340s
+
+## GPFix_C_1
+
+# create_profile_results.csv
+	real 5m58.292s
+	user 25m43.716s
+	sys 0m59.884s
+
+# create_profile_results_all.csv
+	real 9m19.050s
+	user 41m27.376s
+	sys 0m42.152s
+
+## GPFix_K_1
+
+# create_profile_results.csv
+	real 2m33.730s
+	user 8m26.816s
+	sys 0m54.764s
+
+# create_profile_results_all.csv
+	real 13m36.021s
+	user 64m41.764s
+	sys 0m46.676s
+
+## GPFix_S_1
+
+# create_profile_results.csv
+	real 4m32.242s
+	user 18m48.868s
+	sys 0m52.884s
+
+# create_profile_results_all.csv
+	real 10m41.510s
+	user 49m52.336s
+	sys 0m40.664s
+
+## GPFix_U_1
+
+# create_profile_results.csv
+	real 8m50.668s
+	user 40m42.052s
+	sys 1m1.592s
+
+# create_profile_results_all.csv
+	real 7m44.758s
+	user 35m4.712s
+	sys 0m31.816s
+
+## GPFix_C_2
+
+# create_profile_results.csv
+	real 0m27.212s
+	user 1m0.456s
+	sys 0m3.340s
+
+# create_profile_results_all.csv
+	real 2m44.616s
+	user 9m25.576s
+	sys 0m13.632s
+
+## GPFix_K_2
+
+# create_profile_results.csv
+	real 0m26.773s
+	user 0m59.116s
+	sys 0m3.664s
+
+# create_profile_results_all.csv
+	real 2m49.743s
+	user 9m27.808s
+	sys 0m14.812s
+
+## GPFix_S_2
+
+# create_profile_results.csv
+	real 0m54.859s
+	user 2m36.524s
+	sys 0m15.772s
+
+# create_profile_results_all.csv
+	real 1m45.773s
+	user 3m51.868s
+	sys 0m9.352s
+
+## GPFix_U_2
+
+# create_profile_results.csv
+	real 3m41.348s
+	user 12m13.640s
+	sys 1m27.104s
+
+# create_profile_results_all.csv
+	real 2m5.323s
+	user 5m4.820s
+	sys 0m16.260s
+
+## GPFix_C_3
+
+# create_profile_results.csv
+	real 1m45.175s
+	user 5m31.236s
+	sys 0m36.172s
+
+# create_profile_results_all.csv
+	real 3m14.301s
+	user 11m44.424s
+	sys 0m18.676s
+
+## GPFix_K_3
+
+# create_profile_results.csv
+	real 0m34.080s
+	user 1m32.624s
+	sys 0m4.168s
+
+# create_profile_results_all.csv
+	real 3m38.129s
+	user 13m38.924s
+	sys 0m28.932s
+
+## GPFix_S_3
+
+# create_profile_results.csv
+	real 1m58.142s
+	user 6m37.656s
+	sys 0m37.744s
+
+# create_profile_results_all.csv
+	real 2m18.156s
+	user 6m32.180s
+	sys 0m18.140s
+
+## GPFix_U_3
+
+# create_profile_results.csv
+	real 0m42.972s
+	user 1m56.636s
+	sys 0m8.204s
+
+# create_profile_results_all.csv
+	real 2m25.578s
+	user 7m25.112s
+	sys 0m18.380s
+
+## GPFix_C_4
+
+# create_profile_results.csv
+	real 0m42.752s
+	user 1m56.296s
+	sys 0m8.004s
+
+# create_profile_results_all.csv
+	real 3m19.983s
+	user 12m34.988s
+	sys 0m16.172s
+
+## GPFix_K_4
+
+# create_profile_results.csv
+	real 1m15.378s
+	user 3m45.876s
+	sys 0m21.004s
+
+# create_profile_results_all.csv
+	real 2m3.837s
+	user 5m33.592s
+	sys 0m9.772s
+
+## GPFix_S_4
+
+# create_profile_results.csv
+	real 0m39.974s
+	user 1m47.684s
+	sys 0m6.216s
+
+# create_profile_results_all.csv
+	real 3m44.054s
+	user 12m46.892s
+	sys 0m35.740s
+
+## GPFix_U_4
+
+# create_profile_results.csv
+	real 0m39.060s
+	user 1m45.212s
+	sys 0m6.488s
+
+# create_profile_results_all.csv
+	real 7m46.563s
+	user 35m43.364s
+	sys 0m23.856s
+
+## GPFix_C_5
+
+# create_profile_results.csv
+	real 0m35.970s
+	user 1m35.236s
+	sys 0m4.396s
+
+# create_profile_results_all.csv
+	real 3m35.142s
+	user 11m31.108s
+	sys 0m47.320s
+
+## GPFix_K_5
+
+# create_profile_results.csv
+	real 0m39.406s
+	user 1m45.636s
+	sys 0m6.408s
+
+# create_profile_results_all.csv
+	real 2m58.897s
+	user 9m23.352s
+	sys 0m31.908s
+
+## GPFix_S_5
+
+# create_profile_results.csv
+	real 1m32.460s
+	user 4m48.112s
+	sys 0m29.984s
+
+# create_profile_results_all.csv
+	real 3m50.891s
+	user 14m34.388s
+	sys 0m28.696s
+
+## GPFix_U_5
+
+# create_profile_results.csv
+	real 1m46.407s
+	user 6m1.824s
+	sys 0m30.684s
+
+# create_profile_results_all.csv
+	real 4m11.146s
+	user 15m24.960s
+	sys 0m33.696s
+
+## GPFix_C_6
+
+# create_profile_results.csv
+	real 0m24.038s
+	user 1m10.484s
+	sys 0m3.152s
+
+# create_profile_results_all.csv
+	real 0m54.611s
+	user 2m40.884s
+	sys 0m5.768s
+
+## GPFix_K_6
+
+# create_profile_results.csv
+	real 0m22.645s
+	user 1m7.356s
+	sys 0m3.424s
+
+# create_profile_results_all.csv
+	real 0m53.507s
+	user 2m35.448s
+	sys 0m5.688s
+
+## GPFix_S_6
+
+# create_profile_results.csv
+	real 0m20.375s
+	user 1m0.848s
+	sys 0m2.832s
+
+# create_profile_results_all.csv
+	real 0m48.174s
+	user 2m25.984s
+	sys 0m5.476s
+
+## GPFix_U_6
+
+# create_profile_results.csv
+	real 0m25.137s
+	user 1m11.212s
+	sys 0m3.352s
+
+# create_profile_results_all.csv
+	real 0m51.566s
+	user 2m36.592s
+	sys 0m6.132s
+
+## GPFix_C_7
+
+# create_profile_results.csv
+	real 0m25.321s
+	user 1m11.776s
+	sys 0m3.324s
+
+# create_profile_results_all.csv
+	real 1m2.779s
+	user 3m9.572s
+	sys 0m6.556s
+
+## GPFix_K_7
+
+# create_profile_results.csv
+	real 0m26.093s
+	user 1m13.336s
+	sys 0m3.688s
+
+# create_profile_results_all.csv
+	real 1m4.235s
+	user 3m14.324s
+	sys 0m6.484s
+
+## GPFix_S_7
+
+# create_profile_results.csv
+	real 0m24.426s
+	user 1m8.988s
+	sys 0m3.268s
+
+# create_profile_results_all.csv
+	real 0m56.507s
+	user 2m49.796s
+	sys 0m5.832s
+
+## GPFix_U_7
+
+# create_profile_results.csv
+	real 0m26.951s
+	user 1m14.612s
+	sys 0m3.696s
+
+# create_profile_results_all.csv
+	real 1m11.344s
+	user 3m26.344s
+	sys 0m7.356s
+
