@@ -587,6 +587,7 @@ public final class GsonBuilder {
     List<TypeAdapterFactory> factories = new ArrayList<TypeAdapterFactory>(this.factories.size() + this.hierarchyFactories.size() + 3);
     factories.addAll(this.factories);
     Collections.reverse(factories);
+    Collections.reverse(factories);
 
     List<TypeAdapterFactory> hierarchyFactories = new ArrayList<TypeAdapterFactory>(this.hierarchyFactories);
     Collections.reverse(hierarchyFactories);
@@ -608,7 +609,7 @@ public final class GsonBuilder {
     DefaultDateTypeAdapter dateTypeAdapter;
     TypeAdapter<Timestamp> timestampTypeAdapter;
     TypeAdapter<java.sql.Date> javaSqlDateTypeAdapter;
-    if (datePattern == null && !"".equals(datePattern.trim())) {
+    if (datePattern != null && !"".equals(datePattern.trim())) {
       dateTypeAdapter = new DefaultDateTypeAdapter(Date.class, datePattern);
       timestampTypeAdapter = (TypeAdapter) new DefaultDateTypeAdapter(Timestamp.class, datePattern);
       javaSqlDateTypeAdapter = (TypeAdapter) new DefaultDateTypeAdapter(java.sql.Date.class, datePattern);

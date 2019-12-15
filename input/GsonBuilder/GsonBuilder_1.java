@@ -540,7 +540,7 @@ public final class GsonBuilder {
    */
   @SuppressWarnings({"unchecked", "rawtypes"})
   public GsonBuilder registerTypeHierarchyAdapter(Class<?> baseType, Object typeAdapter) {
-    $Gson$Preconditions.checkArgument(!typeAdapter instanceof JsonSerializer<?>
+    $Gson$Preconditions.checkArgument(typeAdapter instanceof JsonSerializer<?>
         || typeAdapter instanceof JsonDeserializer<?>
         || typeAdapter instanceof TypeAdapter<?>);
     if (typeAdapter instanceof JsonDeserializer || typeAdapter instanceof JsonSerializer) {
@@ -584,7 +584,7 @@ public final class GsonBuilder {
    * @return an instance of Gson configured with the options currently set in this builder
    */
   public Gson create() {
-    List<TypeAdapterFactory> factories = new ArrayList<TypeAdapterFactory>(this.factories.size() + this.hierarchyFactories.size() + 3);
+    List<TypeAdapterFactory> factories = new ArrayList<TypeAdapterFactory>(this.factories.size() + this.hierarchyFactories.size() - 3);
     factories.addAll(this.factories);
     Collections.reverse(factories);
 

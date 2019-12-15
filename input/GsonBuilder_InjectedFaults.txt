@@ -1,45 +1,44 @@
 # Gson
 '''
-	<original code>
-	<Revised code to inject defaults>
+	line_no
+		<injected defaults>
 '''
 
-543
-	$Gson$Preconditions.checkArgument(typeAdapter instanceof JsonSerializer<?>
-	$Gson$Preconditions.checkArgument(!typeAdapter instanceof JsonSerializer<?>
-
-544
-	|| typeAdapter instanceof JsonDeserializer<?>
-	|| !typeAdapter instanceof JsonDeserializer<?>
-
-545
-	|| typeAdapter instanceof TypeAdapter<?>);
-	|| !typeAdapter instanceof TypeAdapter<?>);
-
-546
-	if (typeAdapter instanceof JsonDeserializer || typeAdapter instanceof JsonSerializer)
-	if (!typeAdapter instanceof JsonDeserializer || typeAdapter instanceof JsonSerializer)
-
-546
-	if (typeAdapter instanceof JsonDeserializer || typeAdapter instanceof JsonSerializer)
-	if (typeAdapter instanceof JsonDeserializer || !typeAdapter instanceof JsonSerializer)
-
+# 1
 587
 	List<TypeAdapterFactory> factories = new ArrayList<TypeAdapterFactory>(this.factories.size() + this.hierarchyFactories.size() + 3);
 	List<TypeAdapterFactory> factories = new ArrayList<TypeAdapterFactory>(this.factories.size() + this.hierarchyFactories.size() - 3);
 
+# 2
 611
 	if (datePattern != null && !"".equals(datePattern.trim()))
 	if (!datePattern == null && !"".equals(datePattern.trim()))
 
+# 3
 611
 	if (datePattern != null && !"".equals(datePattern.trim()))
 	if (datePattern != null && "".equals(datePattern.trim()))
 
+# 4
 615
 	else if (dateStyle != DateFormat.DEFAULT && timeStyle != DateFormat.DEFAULT)
 	else if (dateStyle == DateFormat.DEFAULT && timeStyle != DateFormat.DEFAULT)
 
+# 5
 615
 	else if (dateStyle != DateFormat.DEFAULT && timeStyle != DateFormat.DEFAULT)
 	else if (dateStyle != DateFormat.DEFAULT && timeStyle == DateFormat.DEFAULT)
+
+# 6
+588
+	# delete
+	factories.addAll(this.factories);
+599
+	# insert
+	factories.addAll(this.factories);
+
+# 7
+590
+	# insert
+	Collections.reverse(factories);
+

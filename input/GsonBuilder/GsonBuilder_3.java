@@ -542,7 +542,7 @@ public final class GsonBuilder {
   public GsonBuilder registerTypeHierarchyAdapter(Class<?> baseType, Object typeAdapter) {
     $Gson$Preconditions.checkArgument(typeAdapter instanceof JsonSerializer<?>
         || typeAdapter instanceof JsonDeserializer<?>
-        || !typeAdapter instanceof TypeAdapter<?>);
+        || typeAdapter instanceof TypeAdapter<?>);
     if (typeAdapter instanceof JsonDeserializer || typeAdapter instanceof JsonSerializer) {
       hierarchyFactories.add(TreeTypeAdapter.newTypeHierarchyFactory(baseType, typeAdapter));
     }
@@ -608,7 +608,7 @@ public final class GsonBuilder {
     DefaultDateTypeAdapter dateTypeAdapter;
     TypeAdapter<Timestamp> timestampTypeAdapter;
     TypeAdapter<java.sql.Date> javaSqlDateTypeAdapter;
-    if (datePattern != null && !"".equals(datePattern.trim())) {
+    if (datePattern != null && "".equals(datePattern.trim())) {
       dateTypeAdapter = new DefaultDateTypeAdapter(Date.class, datePattern);
       timestampTypeAdapter = (TypeAdapter) new DefaultDateTypeAdapter(Timestamp.class, datePattern);
       javaSqlDateTypeAdapter = (TypeAdapter) new DefaultDateTypeAdapter(java.sql.Date.class, datePattern);

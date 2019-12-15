@@ -543,7 +543,7 @@ public final class GsonBuilder {
     $Gson$Preconditions.checkArgument(typeAdapter instanceof JsonSerializer<?>
         || typeAdapter instanceof JsonDeserializer<?>
         || typeAdapter instanceof TypeAdapter<?>);
-    if (typeAdapter instanceof JsonDeserializer || !typeAdapter instanceof JsonSerializer) {
+    if (typeAdapter instanceof JsonDeserializer || typeAdapter instanceof JsonSerializer) {
       hierarchyFactories.add(TreeTypeAdapter.newTypeHierarchyFactory(baseType, typeAdapter));
     }
     if (typeAdapter instanceof TypeAdapter<?>) {
@@ -612,7 +612,7 @@ public final class GsonBuilder {
       dateTypeAdapter = new DefaultDateTypeAdapter(Date.class, datePattern);
       timestampTypeAdapter = (TypeAdapter) new DefaultDateTypeAdapter(Timestamp.class, datePattern);
       javaSqlDateTypeAdapter = (TypeAdapter) new DefaultDateTypeAdapter(java.sql.Date.class, datePattern);
-    } else if (dateStyle != DateFormat.DEFAULT && timeStyle != DateFormat.DEFAULT) {
+    } else if (dateStyle != DateFormat.DEFAULT && timeStyle == DateFormat.DEFAULT) {
       dateTypeAdapter = new DefaultDateTypeAdapter(Date.class, dateStyle, timeStyle);
       timestampTypeAdapter = (TypeAdapter) new DefaultDateTypeAdapter(Timestamp.class, dateStyle, timeStyle);
       javaSqlDateTypeAdapter = (TypeAdapter) new DefaultDateTypeAdapter(java.sql.Date.class, dateStyle, timeStyle);
