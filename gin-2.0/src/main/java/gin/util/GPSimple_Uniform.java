@@ -160,9 +160,10 @@ public abstract class GPSimple_Uniform extends GP {
             Patch patch2 = select(patches);
             crossoverPatches.add(patch2);
 
-            Patch patch3 = uniformCrossover(patch1, patch2, sourceFile);
+            Patch[] patchArray = uniformCrossover(patch1, patch2, sourceFile);
+            Patch patch3 = patchArray[0];
             crossoverPatches.add(patch3);
-            Patch patch4 = uniformCrossover(patch2, patch1, sourceFile);
+            Patch patch4 = patchArray[1];
             crossoverPatches.add(patch4);
 
         }
@@ -188,19 +189,32 @@ public abstract class GPSimple_Uniform extends GP {
     // }
 
     // Selects a gene from patch 1 or patch 2 with equal probability
-    private Patch uniformCrossover(Patch patch1, Patch patch2, SourceFile sourceFile) {
+    private Patch[] uniformCrossover(Patch patch1, Patch patch2, SourceFile sourceFile) {
         List<Edit> list1 = patch1.getEdits();
         List<Edit> list2 = patch2.getEdits();
-        Patch patch = new Patch(sourceFile);
+        Patch child1 = new Patch(sourceFile);
+        Patch child2 = new Patch(sourceFile);
         // If any input patch is empty, return the potential non-empty patch
-        if(list1.isEmpty()) return patch2;
-        if(list2.isEmpty()) return patch1;
+        if(list1.isEmpty() || list2.isEmpty()) return new Patch[]{ patch1, patch2 };
 
-        for (int i = 0; i < patch1.size(); i++) {
+        for (int i = 0; i < list1.size(); i++) {
             double a = Math.random();
-            if(a>=1/2 && i < patch2.size()) patch.add(list1.get(i));
-            else patch.add(list2.get(i));
+            if(a>=1/2 && i < list2.size()){
+                child1.add(list2.get(i));
+            }
+            else{
+                child1.add(list1.get(i));
+            }
         }
-        return patch;
+        for (int i = 0; i < list2.size(); i++) {
+            double a = Math.random();
+            if(a>=1/2 && i < list1.size()){
+                child2.add(list1.get(i));
+            }
+            else{
+                child2.add(list2.get(i));
+            }
+        }
+        return new Patch[] {child1, child2};
     }
 }
