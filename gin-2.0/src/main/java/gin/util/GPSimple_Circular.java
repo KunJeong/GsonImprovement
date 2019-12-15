@@ -181,6 +181,10 @@ public abstract class GPSimple_Circular extends GP {
         List<Edit> list2 = patch2.getEdits();
         Patch result_patch1 = new Patch(sourceFile);
         Patch result_patch2 = new Patch(sourceFile);
+        
+        if (patch1.size() == 0 || patch2.size() == 0) {
+            return new Patch[] {patch1, patch2};	
+	}
 
         int fullsize, iPoint1, iPoint2;
         double dPoint1, dPoint2;
