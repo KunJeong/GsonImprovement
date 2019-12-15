@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import java.lang.Math;
 
 import org.pmw.tinylog.Logger;
 
@@ -168,14 +169,16 @@ public abstract class GPSimple_KPoints extends GP {
             // crossoverPatches.add(patch3);
             // Patch patch4 = crossover(patch2, patch1, sourceFile);
             // crossoverPatches.add(patch4);
+
+            int minLength = Math.min(patch1.size(), patch2.size());
             
             int crossoverPoints = 0;
-            if (patch1.size() == 0){
-                crossoverPoints = patch1.size();
+            if (minLength == 0){
+                crossoverPoints = minLength;
             }
             else{
                 Random random = new Random();
-                crossoverPoints = random.nextInt(patch1.size());
+                crossoverPoints = random.nextInt(minLength);
             }
 
             List<Patch> patchList = kPointCrossover(patch1, patch2, crossoverPoints, sourceFile);
@@ -216,7 +219,7 @@ public abstract class GPSimple_KPoints extends GP {
         Patch childPatch1 = new Patch(sourceFile);
         Patch childPatch2 = new Patch(sourceFile);
         
-        int length = patch1.size();
+        int length = Math.min(patch1.size(), patch2.size());
         int remainPoints = crossoverPoints;
         int lastIndex = 0;
         Random random = new Random();
@@ -252,8 +255,10 @@ public abstract class GPSimple_KPoints extends GP {
                 lastIndex = crossoverIndex;
             }
 
-            for (int j = lastIndex; j < length; j++){
+            for (int j = lastIndex; j < patch1.size(); j++){
                 childPatch1.add(list1.get(j));
+            }
+            for (int j = lastIndex; j < patch2.size(); j++){
                 childPatch2.add(list2.get(j));
             }
         }
