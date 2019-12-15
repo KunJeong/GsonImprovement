@@ -205,12 +205,19 @@ public abstract class GPSimple_Shuffle extends GP {
         Random random = new Random();
         int shuffleNumber, shuffleIndex1, shuffleIndex2, crossoverPointIndex;
         Edit tempEdit1, tempEdit2;
-        shuffleNumber = random.nextInt((patch1.size() / 2) + 1);
+
+        // If any of the input patches are empty, immediately return
+        int minSize = Math.min(patch1.size(), patch2.size());
+        if(minSize == 0) {
+            return new Patch[] {patch1, patch2};
+        }
+        
+        shuffleNumber = random.nextInt((minSize / 2) + 1);
 
         // Shuffle parent patches
         for (int i = 0; i < shuffleNumber; i++) {
-            shuffleIndex1 = random.nextInt(patch1.size());
-            shuffleIndex2 = random.nextInt(patch1.size());
+            shuffleIndex1 = random.nextInt(minSize);
+            shuffleIndex2 = random.nextInt(minSize);
 
             // Apply the same shuffle for both patches
             tempEdit1 = list1.get(shuffleIndex1);
@@ -222,14 +229,16 @@ public abstract class GPSimple_Shuffle extends GP {
         }
 
         // Apply 1-point crossover and reverse the order of unshuffled elements
-        crossoverPointIndex = random.nextInt(patch1.size() - 1) + 1;
+        crossoverPointIndex = random.nextInt(minSize);
         for (int i = 0; i < crossoverPointIndex; i++) {
             resultPatch1.add(list1.get(crossoverPointIndex - i));
             resultPatch2.add(list2.get(crossoverPointIndex - i));
         }
         for (int i = crossoverPointIndex; i < patch1.size(); i++) {
-            resultPatch1.add(list2.get(i));
             resultPatch2.add(list1.get(i));
+        }
+        for (int i = crossoverPointIndex; i < patch2.size(); i++) {
+            resultPatch1.add(list2.get(i));
         }
 
         return new Patch[] {resultPatch1, resultPatch2};
