@@ -1,6 +1,6 @@
 # Software Improvement with Gin: a Case Study
 
-
+* Setup
 ```
 git clone https://github.com/KunJeong/GsonImprovement.git
 cd GsonImprovement/gin-2.0
@@ -30,11 +30,23 @@ java -cp gin.jar gin.util.GPMemory_U
 
 Please note that mavenHome refers to the maven home path, e.g., if the path is "/usr/local/bin/mvn", only  "/usr/local/" should be input to the -h parameter. 
 
-For runtime improvement run:
+* Runtime Improvement
+
+ For runtime improvement run:
 ```
 time java -cp gin.jar gin.util.GPRuntime -d . -p gson -x 2000  -m create_profile_results.csv -h <mavenHome> -in 21 -gn 10 -r 500 
 time java -cp gin.jar gin.util.GPRuntime -d . -p gson -x 2000  -m create_profile_results_all.csv -h <mavenHome> -in 21 -gn 10 -r 67
 ```
+
+* Memory Improvement
+
+ For memory improvement run:
+```
+time java -cp gin.jar gin.util.GPMemory -d . -p gson -x 2000  -m create_profile_results.csv -h <mavenHome> -in 21 -gn 10 -r 500 
+time java -cp gin.jar gin.util.GPMemory -d . -p gson -x 2000  -m create_profile_results_all.csv -h <mavenHome> -in 21 -gn 10 -r 67
+```
+
+* Program Repair
 
 Edit gson/src/main/java/com/google/gson/GsonBuilder.java and inject the following error: 
 ```
@@ -45,9 +57,9 @@ Edit gson/src/main/java/com/google/gson/GsonBuilder.java and inject the followin
 ```
 or simply:
 ```
-cp ../input/GsonBuilder/GsonBuilder_1.java gson gson/src/main/java/com/google/gson/GsonBuilder.java
+cp ../input/GsonBuilder/GsonBuilder_1.java gson/src/main/java/com/google/gson/GsonBuilder.java
 ```
-since GsonBuilder_1.java has same injected error as above. You can simply change the number of file to inject different error(i.e. GsonBuilder_2.java, GsonBuilder_3.java, ...). There are total 7 errors that we have used for program repair, and they are elaborated more in /input/GsonBuilder_InjectedFaults.txt.
+since GsonBuilder_1.java has same injected error as above. You can simply change the number of file to inject different error(e.g., GsonBuilder_2.java, GsonBuilder_3.java, ...). There are total 7 errors that we have used for program repair, and they are elaborated more in /input/GsonBuilder_InjectedFaults.txt.
 
 Re-compile all classes after the edit. For program repair run:
 
@@ -66,7 +78,7 @@ Edit gson/src/main/java/com/google/gson/GsonBuilder.java, remove previous bug, a
 ```
 or simply:
 ```
-cp ../input/GsonBuilder/GsonBuilder_6.java gson gson/src/main/java/com/google/gson/GsonBuilder.java
+cp ../input/GsonBuilder/GsonBuilder_6.java gson/src/main/java/com/google/gson/GsonBuilder.java
 ```
 
 Re-compile all classes after the edit. For program repair run:
@@ -83,7 +95,7 @@ Edit gson/src/main/java/com/google/gson/GsonBuilder.java, remove previous bug, a
 ```
 or simply:
 ```
-cp ../input/GsonBuilder/GsonBuilder_7.java gson gson/src/main/java/com/google/gson/GsonBuilder.java
+cp ../input/GsonBuilder/GsonBuilder_7.java gson/src/main/java/com/google/gson/GsonBuilder.java
 ```
 
 Re-compile all classes after the edit. For program repair run:
