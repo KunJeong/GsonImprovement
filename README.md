@@ -43,6 +43,11 @@ Edit gson/src/main/java/com/google/gson/GsonBuilder.java and inject the followin
 ---
 >     List<TypeAdapterFactory> factories = new ArrayList<TypeAdapterFactory>(this.factories.size() + this.hierarchyFactories.size() - 3); 
 ```
+or simply:
+```
+cp ../input/GsonBuilder/GsonBuilder_1.java gson gson/src/main/java/com/google/gson/GsonBuilder.java
+```
+since GsonBuilder_1.java has same injected error as above. You can simply change the number of file to inject different error(i.e. GsonBuilder_2.java, GsonBuilder_3.java, ...). There are total 7 errors that we have used for program repair, and they are elaborated more in /input/GsonBuilder_InjectedFaults.txt.
 
 Re-compile all classes after the edit. For program repair run:
 
@@ -59,6 +64,10 @@ Edit gson/src/main/java/com/google/gson/GsonBuilder.java, remove previous bug, a
 589a589
 >     factories.addAll(this.factories);
 ```
+or simply:
+```
+cp ../input/GsonBuilder/GsonBuilder_6.java gson gson/src/main/java/com/google/gson/GsonBuilder.java
+```
 
 Re-compile all classes after the edit. For program repair run:
 ```
@@ -71,6 +80,10 @@ Edit gson/src/main/java/com/google/gson/GsonBuilder.java, remove previous bug, a
 ```
 589a590
 >     Collections.reverse(factories);
+```
+or simply:
+```
+cp ../input/GsonBuilder/GsonBuilder_7.java gson gson/src/main/java/com/google/gson/GsonBuilder.java
 ```
 
 Re-compile all classes after the edit. For program repair run:
