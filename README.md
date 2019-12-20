@@ -7,7 +7,7 @@ cd GsonImprovement/gin-2.0
 ./gradlew build
 ```
 
-* Install Gson, fix faulty test and compile
+* Install Gson, fix faulty test, compile and run tests
 ```
 cd ..
 git clone https://github.com/google/gson.git gson
@@ -16,10 +16,6 @@ git checkout gson-parent-2.8.5
 
 cp ../input/ConcurrencyTest.java gson/src/test/java/com/google/gson/functional/ConcurrencyTest.java
 ../apache-maven-3.6.2/mvn compile
-```
-
-* Run tests:
-```
 ../apache-maven-3.6.2/mvn test
 ```
 
@@ -53,6 +49,7 @@ time java -cp gin.jar gin.util.GPMemory -d . -p gson -x 2000  -m create_profile_
 ```
 
 * Program Repair
+
 We have already injected the faults and created GsonBuilder_1.java ~ GsonBuilder_7.java.
 For the first fault,
 ```
